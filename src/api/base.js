@@ -1,16 +1,14 @@
 import axios from 'axios';
 
-// URL de la API (actualiza según sea necesario)
-const URI = 'https://inlima-backend.azurewebsites.net/';
-// const URI = 'http://localhost:3001/';
+const URI = 'https://inlima-backend.azurewebsites.net';
 
-axios.defaults.withCredentials = true; // Configuración global
+axios.defaults.withCredentials = true;
 
 const get = async (endpoint) => {
     try {
         const url = URI.concat(endpoint);
         return await axios.get(url, {
-            withCredentials: true // Configuración específica de la solicitud
+            withCredentials: true
         });
     } catch(err) {
         console.error(err);
@@ -21,9 +19,11 @@ const get = async (endpoint) => {
 const post = async (endpoint, payload) => {
     try {
         const url = URI.concat(endpoint);
-        console.log(url);
         return await axios.post(url, payload, {
-            withCredentials: true // Configuración específica de la solicitud
+            withCredentials: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
     } catch(err) {
         console.error(err);
@@ -35,7 +35,10 @@ const put = async (endpoint, payload) => {
     try {
         const url = URI.concat(endpoint);
         return await axios.put(url, payload, {
-            withCredentials: true // Configuración específica de la solicitud
+            withCredentials: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
     } catch(err) {
         console.error(err);
@@ -47,7 +50,7 @@ const remove = async (endpoint) => {
     try {
         const url = URI.concat(endpoint);
         return await axios.delete(url, {
-            withCredentials: true // Configuración específica de la solicitud
+            withCredentials: true
         });
     } catch(err) {
         console.error(err);

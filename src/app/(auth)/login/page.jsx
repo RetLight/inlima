@@ -43,7 +43,7 @@ export default function LoginPage() {
         }
       }
       else {
-        alert("Credenciales incorrectas")
+        alert("Credenciales incorrectas X")
       }
     } catch (error) {
       console.error('Error:', error.message);
