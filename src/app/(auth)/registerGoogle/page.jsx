@@ -80,7 +80,7 @@ export default function RegisterGooglePage() {
   return (
     <div className="loquequieras h-screen m-0 p-0 font-montserrat" 
     style={{ 
-      backgroundImage: "url('/fondo_login.jpg')",
+      backgroundImage: "url('/bg.png')",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center center"

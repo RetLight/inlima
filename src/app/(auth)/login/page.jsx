@@ -14,9 +14,6 @@ import { useEffect } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 export default function LoginPage() {
 
   const [role, setRole] = useState(null);
@@ -78,7 +75,7 @@ export default function LoginPage() {
   return (
     <div className="loquequieras h-screen m-0 p-0 font-montserrat" 
   style={{ 
-    backgroundImage: "url('/fondo_login.jpg')",
+    backgroundImage: "url('/bg.png')",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center"

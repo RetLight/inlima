@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-//https://inlima-2024-sw2-as-api.azurewebsites.net/
-const URI = 'https://inlima-backend.azurewebsites.net'
+const URI = process.env.NEXT_PUBLIC_BACKEND_API
 
 axios.defaults.withCredentials = true
 
