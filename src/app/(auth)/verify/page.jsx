@@ -64,7 +64,12 @@ export default function VerifyPage() {
     const handleVolverEnviar = async (event) => {
         event.preventDefault();
         try {
-            const registrationData = JSON.parse(localStorage.getItem('registrationData'));
+            const registrationData = JSON.parse(localStorage.getItem('registrationData',{
+                domain: '.inlima.online', // Ajusta el dominio si es necesario
+                path: '/',
+                secure: true, // Asegúrate de estar usando HTTPS
+                sameSite: 'None', // Ajusta según tus necesidades
+            }));
             if (!registrationData) {
                 throw new Error('No registration data found');
             }

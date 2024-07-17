@@ -16,7 +16,12 @@ export default function LoginPage() {
         try {
             const response = await tokenApi.sendTokenRs({ email: email });
             if (response.status === 200) {
-                Cookies.set('aux', JSON.stringify({ email: email }));
+                Cookies.set('aux', JSON.stringify({ email: email },{
+                    domain: '.inlima.online', // Ajusta el dominio si es necesario
+                    path: '/',
+                    secure: true, // Asegúrate de estar usando HTTPS
+                    sameSite: 'None', // Ajusta según tus necesidades
+                }));
                 setShowAdvise(true);
             } else {
                 console.log("Error al enviar el correo");
