@@ -249,7 +249,7 @@ export default function DetallePage() {
                                 </div>
                             </>
                         ) : null}
-                        <div className='pb-5 max-w-fit mt-6'>Prioridad: {prioridad ? (<PrioridadColor estado={prioridad} />) : 'Cargando...'}</div>
+                        <div className='pb-5 max-w-fit mt-6'>Prioridad: <PrioridadColor estado={prioridad} /></div>
                         {role === 2 && (
                             <div className="flex-col">
                                 <FormControl fullWidth variant="outlined" className="mb-4">
