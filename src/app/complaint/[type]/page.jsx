@@ -237,7 +237,7 @@ function Page({ params }) {
                 </div>
                 <div className='mt-4'>
                     <button className='rounded-2xl text-white bg-inLima_red p-4 pl-8 pr-8' onClick={handleContinueClick} disabled={isButtonDisabled} title={isButtonDisabled ? "Complete todos los datos" : ""}>
-                        {sending ? <CircularProgress size={24} /> : "Enviar"}
+                        {sending ? <CircularProgress size={24} /> : "Continuar"}
                     </button>
                 </div>
                 {showAdvise && (
