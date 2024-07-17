@@ -14,6 +14,16 @@ export default function Layout({ children }) {
     const [role, setRole] = useState(null);
     const [mun, setMun] = useState(null);
     useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setNav(false);
+            } else {
+                setNav(true);
+            }
+        };
+
+        // Llama a handleResize cuando el componente se monta
+        handleResize();
         // Llama a obtenerRol para obtener el rol del usuario cuando el componente se monta
         const fetchUserRole = async () => {
             try {
