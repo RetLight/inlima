@@ -1,17 +1,17 @@
 "use client";
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import StatusCard from "@/components/StatusCard";
 import Layout from '@/components/Layout';
-import api from '@/api/queja';
+import api from '@/api/queja'
 
-function ResultadosPage() {
+export default function ResultadosPage() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
     const [resultados, setResultados] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const [orderButton, setOrderButton] = useState(false);
     useEffect(() => {
         const fetchQuejas = async () => {
             const params = new URLSearchParams(searchParams.toString());
@@ -21,7 +21,10 @@ function ResultadosPage() {
             }
             try {
                 const response = await api.obtenerQuejasFiltradas(payload);
-                setResultados(response.data);
+                const resultados = response.data.sort((a, b) => {
+                    return b.id - a.id
+                });
+                setResultados(resultados);
             } catch (error) {
                 console.error('Error al obtener las quejas:', error);
             } finally {
@@ -62,6 +65,7 @@ function ResultadosPage() {
         setResultados(resultadosOrd);
     }
 
+
     return (
         <Layout>
             <div className="border-b border-gray-300 flex justify-between items-center " id="titulo">
@@ -70,7 +74,7 @@ function ResultadosPage() {
             </div>
             <div className="flex flex-wrap gap-8 w-auto">
                 {resultados && resultados.length === 0 ? (
-                loading ? (<p className="flex justify-center items-center text-xl p-5">Cargando ...</p>) : (<p>No se encontraron quejas realizadas</p>)
+                    loading ? (<p className="flex justify-center items-center text-xl p-5">Cargando ...</p>) : (<p>No se encontraron quejas realizadas</p>)
                 ) : (
                     resultados && resultados.map((queja) => (
                         <StatusCard
@@ -91,17 +95,19 @@ function ResultadosPage() {
                     <button className="bg-neutral-400 text-white rounded py-1 px-2 flex items-center justify-center shadow-md hover:bg-neutral-500 transition"
                         onClick={orderByPrioridad}>Prioridad</button>
                     <button className="bg-neutral-400 text-white rounded py-1 px-2 flex items-center justify-center shadow-md hover:bg-neutral-500 transition"
-                            onClick={orderByFecha}>Fecha</button>
+                        onClick={orderByFecha}>Fecha</button>
                 </div>
                 <button className="bg-inLima_red text-white text-3xl rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-red-700 transition"
                     onClick={toggleSort}>
                     +
                 </button>
             </div>
-        </Layout>
+
+
+
+        </Layout >
     );
 }
-
 export default function WrappedResultadosPage() {
     return (
         <Suspense fallback={<div>Loading...</div>}>
