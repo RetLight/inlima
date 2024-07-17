@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const URI = 'https://inlima.online/back';
+//const URI = 'https://inlima.online/back';
+const URI = 'http://localhost:3001';
 
 axios.defaults.withCredentials = true;
 
