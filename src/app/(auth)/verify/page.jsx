@@ -29,12 +29,7 @@ export default function VerifyPage() {
         const aux = `${num1}${num2}${num3}${num4}${num5}${num6}`;
 
         try {
-            const registrationData = JSON.parse(Cookies.get('registrationData',{
-                domain: '.inlima.online', // Ajusta el dominio si es necesario
-                path: '/',
-                secure: true, // Asegúrate de estar usando HTTPS
-                sameSite: 'None', // Ajusta según tus necesidades
-            }));
+            const registrationData = JSON.parse(Cookies.get('registrationData'));
             if (!registrationData) {
                 throw new Error('No registration data found');
             }
@@ -69,12 +64,7 @@ export default function VerifyPage() {
     const handleVolverEnviar = async (event) => {
         event.preventDefault();
         try {
-            const registrationData = JSON.parse(localStorage.getItem('registrationData',{
-                domain: '.inlima.online', // Ajusta el dominio si es necesario
-                path: '/',
-                secure: true, // Asegúrate de estar usando HTTPS
-                sameSite: 'None', // Ajusta según tus necesidades
-            }));
+            const registrationData = JSON.parse(localStorage.getItem('registrationData'));
             if (!registrationData) {
                 throw new Error('No registration data found');
             }

@@ -50,7 +50,12 @@ export default function RegisterPage() {
 
 
       if (response.status === 200) {
-        Cookies.set('registrationData',JSON.stringify(User));
+        Cookies.set('registrationData',JSON.stringify(User,{
+          domain: '.inlima.online', // Ajusta el dominio si es necesario
+          path: '/',
+          secure: true, // Asegúrate de estar usando HTTPS
+          sameSite: 'None', // Ajusta según tus necesidades
+      }));
         setShowAdvise(true);
         //router.push('/verify');
       }else if(response.status === 204){
