@@ -23,7 +23,7 @@ export default function HeaderInLima({ toggleNav, Nav, role, mun }) {
                     {mun ? ` - ${mun.nombre}` : ''}
                 </span>
             </div>
-            <div className="mr-5 block md:hidden">
+            <div className="mr-5">
                 <button onClick={handleLogout}>Salir</button>
             </div>
         </div>
