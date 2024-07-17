@@ -11,6 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=0.5, maximum-scale=1.0, minimum-scale=0.5, user-scalable=yes"
+        />
+        <meta name="description" content={metadata.description} />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );
