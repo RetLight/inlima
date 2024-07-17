@@ -24,6 +24,7 @@ function ResultadosPage() {
                 const resultados = response.data.sort((a, b) => {
                     return b.id - a.id
                 });
+                console.log(resultados)
                 setResultados(resultados);
             } catch (error) {
                 console.error('Error al obtener las quejas:', error);
@@ -39,7 +40,6 @@ function ResultadosPage() {
     };
 
     const toggleSort = () => {
-        console.log(resultados)
         setOrderButton(!orderButton)
     }
 
