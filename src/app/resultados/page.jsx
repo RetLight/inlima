@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import StatusCard from "@/components/StatusCard";
 import Layout from '@/components/Layout';
 import api from '@/api/queja'
 
-export default function ResultadosPage() {
+function ResultadosPage() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
