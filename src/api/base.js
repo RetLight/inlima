@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URI = 'https://inlima-backend.azurewebsites.net';
+const URI = 'https://inlima.online/back';
 
 axios.defaults.withCredentials = true;
 
