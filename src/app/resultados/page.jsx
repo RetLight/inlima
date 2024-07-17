@@ -39,6 +39,7 @@ function ResultadosPage() {
     };
 
     const toggleSort = () => {
+        console.log(resultados)
         setOrderButton(!orderButton)
     }
 
